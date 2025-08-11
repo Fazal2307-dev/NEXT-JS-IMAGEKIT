@@ -16,6 +16,11 @@ export interface IVideo {
     videoUrl:string;
     thumbnailUrl:string;
     controls?:boolean;
+    transformation?: {
+        height:number;
+        width:number;
+        quality?:number;
+    };
 
 
 }
