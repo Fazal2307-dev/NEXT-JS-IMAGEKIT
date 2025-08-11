@@ -2,11 +2,6 @@ import mongoose, {Schema,model,models} from "mongoose";
 import bcrypt from "bcrypt";
 
 
-
-
-
-
-
 export interface IUser {
     email: string;
     password: string;
@@ -24,3 +19,11 @@ const userSchema = new Schema<IUser> (
     timestamps: true
    }
 );
+
+
+userSchema.pre('save', async function (next){
+    if(this.isModified("password")){
+       this.password=  await bcrypt.hash(this.password,10)
+    }
+    next();
+ });
