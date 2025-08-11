@@ -7,3 +7,15 @@ export  const VIDEO_DIMENSATION = {
     width:1080,
     height:1920
 } as const;
+
+
+export interface IVideo {
+    _id?:mongoose.Types.ObjectId,
+    title:string;
+    description :string;
+    videoUrl:string;
+    thumbnailUrl:string;
+    controls?:boolean;
+
+
+}
