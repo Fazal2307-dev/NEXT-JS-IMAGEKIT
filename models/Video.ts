@@ -30,6 +30,11 @@ const  videoSchema = new Schema<IVideo>(
         videoUrl:{type:String,required:true},
         thumbnailUrl:{type:String,required:true},
         controls:{type:Boolean,default:true},
+        transformation:{
+            height:{type:Number,default:VIDEO_DIMENSATION.height},
+            width:{type:Number,default:VIDEO_DIMENSATION.width},
+            quality:{type:Number,min:1,max:100},
+        }
     },
     {timestamps:true}
 );
