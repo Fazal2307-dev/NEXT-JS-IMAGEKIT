@@ -21,6 +21,15 @@ export interface IVideo {
         width:number;
         quality?:number;
     };
+};
 
-
-}
+const  videoSchema = new Schema<IVideo>(
+    {
+        title:{type:String,required:true},
+        description:{type:String,required:true},
+        videoUrl:{type:String,required:true},
+        thumbnailUrl:{type:String,required:true},
+        controls:{type:Boolean,default:true},
+    },
+    {timestamps:true}
+);
